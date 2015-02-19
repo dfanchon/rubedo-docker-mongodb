@@ -9,7 +9,7 @@ COPY supervisord.conf /etc/supervisord.conf
 #Install Mongo
 RUN wget -O mongo.tgz https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.7.tgz \
     && tar -xvf mongo.tgz -C /usr/local --strip-components=1 \
-    && rm -f mongodb-linux-x86_64-2.6.7.tgz
+    && rm -f mongo.tgz
 # Expose port
 EXPOSE 27017
 CMD ["/usr/bin/supervisord"]
