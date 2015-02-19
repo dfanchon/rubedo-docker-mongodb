@@ -1,7 +1,7 @@
 # Rubedo dockerfile
 FROM centos:centos7
 RUN yum -y update
-# Install PHP env
+# Install Supervisor and required packages
 RUN yum install -y epel-release && \
     yum install -y tar wget supervisor
 RUN mkdir -p /var/run/mongo /var/log/supervisor /var/log/mongo
