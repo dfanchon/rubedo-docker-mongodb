@@ -12,4 +12,7 @@ RUN wget -O mongo.tgz https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.
     && rm -f mongo.tgz
 # Expose port
 EXPOSE 27017
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /*.sh
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
