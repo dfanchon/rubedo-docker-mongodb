@@ -7,7 +7,7 @@ RUN yum install -y epel-release; yum -y clean all && \
 RUN mkdir -p /var/run/mongo /var/log/supervisor /var/log/mongo
 COPY supervisord.conf /etc/supervisord.conf
 #Install Mongo
-RUN wget -O mongo.tgz https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-2.6.7.tgz \
+RUN wget -O mongo.tgz https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-3.0.0.tgz \
     && tar -xvf mongo.tgz -C /usr/local --strip-components=1 \
     && rm -f mongo.tgz
 # Expose port
