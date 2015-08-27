@@ -6,7 +6,7 @@ tar -xvf mongo.tgz -C /usr/local --strip-components=1
 rm -f mongo.tgz
 
 mongodb_cmd="mongod --storageEngine wiredTiger"
-if [ "${RS_NAME}" != "**None**" ]; then
+if [ "${RS_NAME}" != "" ]; then
 	cmd="$mongodb_cmd --dbpath /var/lib/mongo --directoryperdb --replSet ${RS_NAME}"
 else
 	cmd="$mongodb_cmd --dbpath /var/lib/mongo --directoryperdb"
