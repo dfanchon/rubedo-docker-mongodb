@@ -5,11 +5,11 @@ wget -O mongo.tgz https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-$
 tar -xvf mongo.tgz -C /usr/local --strip-components=1 
 rm -f mongo.tgz
 
-mongodb_cmd="mongod --storageEngine wiredTiger"
+mongodb_cmd="mongod --storageEngine wiredTiger --dbpath /var/lib/mongo --directoryperdb"
+
 if [ "${RS_NAME}" != "" ]; then
-	cmd="$mongodb_cmd --dbpath /var/lib/mongo --directoryperdb --replSet ${RS_NAME}"
-else
-	cmd="$mongodb_cmd --dbpath /var/lib/mongo --directoryperdb"
+    cmd="$cmd --replSet ${RS_NAME}"
 fi
+
 $cmd &
 fg
