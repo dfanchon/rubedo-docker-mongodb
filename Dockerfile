@@ -10,7 +10,6 @@ RUN mkdir -p /var/run/mongo /var/log/mongo /var/lib/mongo
 # Expose port
 EXPOSE 27017
 ENV VERSION 3.0.0
-ENV RS_NAME **None**
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /*.sh
 CMD ["/entrypoint.sh"]
