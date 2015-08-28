@@ -2,9 +2,9 @@
 FROM centos:latest
 RUN yum -y update
 
-# Install Supervisor and required packages
+# Install required packages
 RUN yum install -y tar wget; yum -y clean all
-
+RUN pip install pymongo
 RUN mkdir -p /var/run/mongo /var/log/mongo /var/lib/mongo
 
 # Expose port
